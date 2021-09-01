@@ -1,7 +1,7 @@
 Hi,
 
 This is a simple demonstration of sample java-spring-boot project integration with GitLab + Jenkins + Docker + Private docker registry.  
-
+```
 Tools used : 
     1. Gitlab
     2. Jenkins CI/CD
@@ -9,6 +9,7 @@ Tools used :
     4. docker
     5. nexus repository
     6. Nginx for proxy service ( if needed )
+```
     
    ![Spring_project](https://user-images.githubusercontent.com/50264439/131611090-ddd81f43-9d10-4621-89a2-4db3ed0d0705.jpeg)
 
