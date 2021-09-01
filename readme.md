@@ -33,12 +33,14 @@ After login to jenkins >> dashboard >> new item >> Pipeline >> OK
 
 Provide your repository project url gitlab/gitbucket..etc on Project URL section
 
-![spring2](https://user-images.githubusercontent.com/50264439/131609388-a9c1cd0e-db26-46cf-9ca2-05136471ac7e.png)
+![spring2](https://user-images.githubusercontent.com/50264439/131610683-3663ae44-3e14-4adb-a612-aeee937041aa.png)
+
 
 
 Add your pipeline script . I have used groovy syntax and script available on repo as Pipeline_script.txt
 
-![spring3](https://user-images.githubusercontent.com/50264439/131609405-191079a9-d293-4b91-9907-5002c93c323c.png)
+![spring3](https://user-images.githubusercontent.com/50264439/131610670-d7c31b1a-2dde-4afc-8db3-e301d1eafd1d.png)
+
 
 
 Pass needed credentials dynamically during runtime by jenkins >> manage jenkins >> manage credentials >> choose jenkins from below
