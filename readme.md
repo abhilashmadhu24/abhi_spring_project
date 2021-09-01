@@ -12,44 +12,53 @@ Tools used :
     
 Working:
 
->> Here I have used my private gitlab repository for cloning codes to my jenkins server. For convience, I have added codes in my github repo too.
+Here I have used my private gitlab repository for cloning codes to my jenkins server. For convience, I have added codes in my github repo too.
 
->> As testing purpose, I have installed nexus on same jenkins server.
+As testing purpose, I have installed nexus on same jenkins server.
 
->> When gitlab commit is triggered, jenkins will start build, test , create docker image and pull to registry
+When gitlab commit is triggered, jenkins will start build, test , create docker image and pull to registry
 
->> Pipelined architecture is used
+Pipelined architecture is used
 
 Steps:
 
->>  Install jenkins and create a new project as Pipelined project
+Install jenkins and create a new project as Pipelined project
 
 Follow this url for jenkins installation : https://linuxize.com/post/how-to-install-jenkins-on-ubuntu-18-04/
 
->> After login to jenkins >> dashboard >> new item >> Pipeline >> OK
+After login to jenkins >> dashboard >> new item >> Pipeline >> OK
+
+![spring1](https://user-images.githubusercontent.com/50264439/131609336-725337ee-f7e7-468f-a7de-e5dce97c694f.png)
+
 
 Provide your repository project url gitlab/gitbucket..etc on Project URL section
 
+![spring2](https://user-images.githubusercontent.com/50264439/131609388-a9c1cd0e-db26-46cf-9ca2-05136471ac7e.png)
+
+
 Add your pipeline script . I have used groovy syntax and script available on repo as Pipeline_script.txt
 
->> Pass needed credentials dynamically during runtime by jenkins >> manage jenkins >> manage credentials >> choose jenkins from below
->> Create user and copy credentialsId
+![spring3](https://user-images.githubusercontent.com/50264439/131609405-191079a9-d293-4b91-9907-5002c93c323c.png)
 
->> You can now use this credentialsID instead of passwords in pipeline script
 
->> Nexus repo-management
+Pass needed credentials dynamically during runtime by jenkins >> manage jenkins >> manage credentials >> choose jenkins from below
+Create user and copy credentialsId
+
+You can now use this credentialsID instead of passwords in pipeline script
+
+Nexus repo-management
 
 Follow this url for nexus  installation : https://www.howtoforge.com/how-to-install-and-configure-nexus-repository-manager-on-ubuntu-20-04/
 
->> After login to nexus >> Repository >> create repository >> Docker (hosted) >> done
->> Users >> Create local user >> done
->> Realms >> Click on Docker Bearer Token Realm >> Move to active
->> More details at https://blog.sonatype.com/setting-up-a-secure-private-nexus-repository
+After login to nexus >> Repository >> create repository >> Docker (hosted) >> done
+Users >> Create local user >> done
+Realms >> Click on Docker Bearer Token Realm >> Move to active
+More details at https://blog.sonatype.com/setting-up-a-secure-private-nexus-repository
 
 
 Now you need to change the respective credentials and urls in pipeline as of yours and build job.
 
->> After building and sending to registry server, we cann pull it based on tag_value and deploy on our server. 
+After building and sending to registry server, we cann pull it based on tag_value and deploy on our server. 
 ```
 >> docker pull localhost:8091/repository/abhi_repo/abhi_project:<tag_value>
 >> docker run -d -p 8090:8090 abhi_petclinic
